@@ -1,0 +1,45 @@
+{
+  "name": "crypto-crawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/main.js",
+  "scripts": {
+    "build": "tsc",
+    "migrate": "yarn sequelize-cli db:migrate --config=database.json",
+    "start:dev": "yarn ts-node-dev --respawn --transpileOnly --project tsconfig.dev.json ./src/main.ts",
+    "start": "node ./dist/main.js",
+    "watch:server": "yarn tsc -w --preserveWatchOutput",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "yarn eslint \"./src/**/*.ts\""
+  },
+  "author": {
+    "name": "Tércio Garcia"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "pg": "^7.14.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.2",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.29",
+    "@types/node": "12.0.4",
+    "@types/validator": "^12.0.1",
+    "@typescript-eslint/eslint-plugin": "1.11.0",
+    "@typescript-eslint/parser": "1.11.0",
+    "app-module-path": "2.2.0",
+    "concurrently": "4.0.0",
+    "eslint": "6.0.1",
+    "husky": "2.3.0",
+    "ts-node-dev": "1.0.0-pre.39",
+    "typescript": "3.5.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "concurrently -r \"yarn lint --fix\" \"yarn tsc --noEmit\"",
+      "post-merge": "yarn"
+    }
+  }
+}

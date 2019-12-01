@@ -1,0 +1,13 @@
+node_modules
+bin
+dist
+*.log
+mochawesome-reports
+coverage
+.data
+npm-debug*
+upload/**
+v8-compile-cache*
+.nyc_output
+.env
+yarn-error.log

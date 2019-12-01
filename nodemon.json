@@ -1,0 +1,9 @@
+{
+  "exec": "kill $(ss -tlnp | grep 9229 | cut -d \"=\" -f 2 | cut -d \",\" -f 1); node --inspect=0.0.0.0:9229 dist/main.js",
+  "watch": [
+    "dist"
+  ],
+  "ext": "js",
+  "delay": 1500,
+  "stdout": true
+}

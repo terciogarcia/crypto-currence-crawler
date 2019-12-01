@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  crypto-crawler:
+    container_name: crypto-crawler
+    build:
+      context: ./
+    ports:
+      - 3000:3000
+    env_file: .env
+    volumes:
+      - .:/src:cached
+    command: yarn start:dev
+    links:
+      - crypto-database
+
+  crypto-database:
+    container_name: crypto-database
+    image: postgres:10.4-alpine
+    environment:
+      - POSTGRES_DB=crypto
+      - POSTGRES_USER=crypto
+      - POSTGRES_PASSWORD=123456
+    volumes:
+      - ./.data/postgresql:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"

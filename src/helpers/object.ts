@@ -1,0 +1,1 @@
+export const getKeyByValue = (object: any, value: any) => Object.keys(object).find((k: string)=> object[k] === value);
