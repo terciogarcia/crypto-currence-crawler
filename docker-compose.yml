@@ -10,7 +10,7 @@ services:
     env_file: .env
     volumes:
       - .:/src:cached
-    command: yarn start:dev
+    command: yarn start:dev && yarn migrate
     links:
       - crypto-database
 

@@ -6,7 +6,6 @@ WORKDIR /src
 RUN yarn && yarn cache clean
 
 RUN yarn build
-RUN yarn migrate
 
 EXPOSE 3000
 

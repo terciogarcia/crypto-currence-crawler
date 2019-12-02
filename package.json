@@ -34,11 +34,11 @@
     "eslint": "6.0.1",
     "husky": "2.3.0",
     "ts-node-dev": "1.0.0-pre.39",
-    "typescript": "3.5.3"
+    "typescript": "3.7.2"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "concurrently -r \"yarn lint --fix\" \"yarn tsc --noEmit\"",
+      "pre-commit": "concurrently -r \"yarn lint --fix\"",
       "post-merge": "yarn"
     }
   }
